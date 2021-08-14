@@ -1,6 +1,6 @@
 <template>
   <Navbar />
-  <router-view :bookList="booksData" @store="storeData" @update="updatedBook" />
+  <router-view :bookList="booksData" @store="storeData" @update="updateData" @delete="deleteData" />
 </template>
 
 <script>
@@ -24,9 +24,14 @@ export default {
       console.log(bookCreated);
       alert("Book successfuly created!");
     },
-    updatedBook(bookChanged, bookIndex) {
+    updateData(bookChanged, bookIndex) {
       console.log(bookChanged, bookIndex);
-      alert("Data berhasil diperbarui!");
+      alert("Data successfully updated!");
+    },
+    deleteData(book, index) {
+      console.log(book);
+      console.log(index);
+      alert("Data successfully deleted!")
     }
   }
 };

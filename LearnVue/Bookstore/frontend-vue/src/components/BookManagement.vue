@@ -70,7 +70,7 @@
                         <td> {{ book.stock }} </td>
                         <td>
                             <button class="btn btn-info mr-3"  @click="showEdit(book, index)">Edit</button>
-                            <button class="btn btn-danger">Hapus</button>
+                            <button class="btn btn-danger" @click="deleteBook(book, index)">Hapus</button>
                         </td>
                     </tr>
                 </tbody>
@@ -131,6 +131,9 @@ export default {
             this.$emit("update", bookChanged, this.bookIndex);
             this.formMode = "";
         },
+        deleteBook(book, index) {
+            this.$emit("delete", book, index);
+        }
     },
 };
 </script>
